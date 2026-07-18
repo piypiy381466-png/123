@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WinterGlow — студия новогоднего декора. Егорьевск и область. 6 лет опыта, 350+ проектов.">
+<title>О нас — WinterGlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="snow"></div>
+<div class="admin-bar" id="adminBar"><span>🔐 Админ</span><button class="abtn" onclick="exportData()">💾 Сохранить</button><button class="abtn" onclick="importData()">📂 Загрузить</button><button class="abtn red" onclick="toggleAdmin()">Выход</button></div>
+<nav class="nav" id="navbar">
+<div class="nav-logo" onclick="location.href='index.html'"><span>❄️</span> WinterGlow</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html" data-page="home">Главная</a></li>
+<li><a href="services.html" data-page="services">Услуги</a></li>
+<li><a href="catalog.html" data-page="catalog">Каталог</a></li>
+<li><a href="gallery.html" data-page="gallery">Галерея</a></li>
+<li><a href="about.html" data-page="about" class="active">О нас</a></li>
+<li><a href="contact.html" data-page="contact" class="nav-cta">Заказать</a></li>
+<li><button class="cart-icon" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button></li>
+</ul>
+<button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<main>
+<div class="section-head" style="padding-top:5rem">
+<span class="section-tag">О нас</span>
+<h2 class="section-title">Студия WinterGlow</h2>
+<p class="section-sub">Создаём новогоднее волшебство с 2018 года</p>
+</div>
+<div class="about-container">
+<div class="about-text">
+<h3>Мы — команда, влюблённая в Новый год</h3>
+<p>WinterGlow объединяет декораторов, дизайнеров и светотехников, которые превращают обычные дома в зимние сказки. Работаем в Егорьевске и области.</p>
+<p>Каждый проект — это искусство. От классического декора до минималистичного скандинавского стиля — найдём идеальное решение для вас.</p>
+</div>
+<div class="about-stats">
+<div class="stat-card"><span class="stat-number">350+</span><span class="stat-label">Проектов</span></div>
+<div class="stat-card"><span class="stat-number">6 лет</span><span class="stat-label">Опыта</span></div>
+<div class="stat-card"><span class="stat-number">98%</span><span class="stat-label">Довольных</span></div>
+<div class="stat-card"><span class="stat-number">24/7</span><span class="stat-label">Поддержка</span></div>
+</div>
+</div>
+<section class="section alt">
+<div class="section-head"><span class="section-tag">Отзывы</span><h2 class="section-title">Что говорят клиенты</h2></div>
+<div class="test-grid" id="testGrid"></div>
+</section>
+</main>
+<footer>
+<div class="footer-logo">❄️ WinterGlow</div>
+<ul class="footer-links"><li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li><li><a href="catalog.html">Каталог</a></li><li><a href="gallery.html">Галерея</a></li><li><a href="about.html">О нас</a></li><li><a href="contact.html">Контакты</a></li></ul>
+<p class="footer-copy">© 2025 WinterGlow. Егорьевск и область.</p>
+</footer>
+<div class="cart-modal" id="cartModal" onclick="closeCartOutside(event)"><div class="cart-panel" onclick="event.stopPropagation()"><div class="cart-header"><h3>🛒 Корзина</h3><button class="cart-close" onclick="closeCart()">✕</button></div><div id="cartItems"></div><div class="cart-total"><span>Итого:</span><span class="cart-total-price" id="cartTotal">0 ₽</span></div><div class="cart-actions"><a href="contact.html" class="btn btn-gold" style="justify-content:center" onclick="closeCart()">Оформить</a><button class="btn btn-outline" style="justify-content:center" onclick="clearCart()">Очистить</button></div></div></div>
+<script src="js/data.js"></script><script src="js/app.js"></script><script src="js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WinterGlow — новогоднее украшение домов и коттеджей в Егорьевске и области. Гирлянды, ёлки, бахрома, световые фигуры.">
+<title>WinterGlow — Новогоднее украшение домов в Егорьевске</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="snow"></div>
+
+<!-- ADMIN BAR -->
+<div class="admin-bar" id="adminBar">
+<span>🔐 Админ</span>
+<button class="abtn" onclick="openProductModal()">+ Товар</button>
+<button class="abtn" onclick="openGalleryModal()">+ Фото</button>
+<button class="abtn" onclick="exportData()">💾 Сохранить</button>
+<button class="abtn" onclick="importData()">📂 Загрузить</button>
+<button class="abtn red" onclick="toggleAdmin()">Выход</button>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="navbar">
+<div class="nav-logo" onclick="logoClick()"><span>❄️</span> WinterGlow</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html" data-page="home" class="active">Главная</a></li>
+<li><a href="services.html" data-page="services">Услуги</a></li>
+<li><a href="catalog.html" data-page="catalog">Каталог</a></li>
+<li><a href="gallery.html" data-page="gallery">Галерея</a></li>
+<li><a href="about.html" data-page="about">О нас</a></li>
+<li><a href="contact.html" data-page="contact" class="nav-cta">Заказать</a></li>
+<li><button class="cart-icon" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button></li>
+</ul>
+<button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hero-glow"></div>
+<div class="hero-content">
+<div class="hero-badge"><span class="dot"></span> Новогодний декор премиум-класса</div>
+<h1>Превращаем дома<br>в <span class="accent">зимнюю сказку</span></h1>
+<p>Гирлянды, бахрома, ёлки и световые фигуры. Бесплатный выезд, дизайн-проект и монтаж за 1 день. Егорьевск и область.</p>
+<div class="hero-btns">
+<a href="contact.html" class="btn btn-gold">✦ Оставить заявку</a>
+<a href="#calc" class="btn btn-outline">Рассчитать цену →</a>
+</div>
+</div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="section alt">
+<div class="section-head">
+<span class="section-tag">До и После</span>
+<h2 class="section-title">Посмотрите разницу</h2>
+<p class="section-sub">Двигайте ползунок влево-вправо, чтобы сравнить</p>
+</div>
+<div class="ba-tabs" id="baTabs"></div>
+<div class="ba-container" id="baContainer"></div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+<div class="section-head">
+<span class="section-tag">Услуги</span>
+<h2 class="section-title">Что мы делаем</h2>
+<p class="section-sub">Полный цикл — от идеи до монтажа</p>
+</div>
+<div class="services-grid" id="servicesGrid"></div>
+<div style="text-align:center;margin-top:2rem"><a href="services.html" class="btn btn-outline">Все услуги →</a></div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section alt" id="calc">
+<div class="section-head">
+<span class="section-tag">Калькулятор</span>
+<h2 class="section-title">Рассчитайте стоимость</h2>
+<p class="section-sub">Предварительная оценка — точно после замера</p>
+</div>
+<div class="calc-wrap">
+<div class="calc-row">
+<label>Периметр крыши (метров)</label>
+<input type="number" id="calcRoof" min="0" value="50" oninput="calcPrice()">
+</div>
+<div class="calc-row">
+<label>Количество окон</label>
+<input type="number" id="calcWindows" min="0" value="6" oninput="calcPrice()">
+</div>
+<div class="calc-row">
+<label>Деревьев на участке</label>
+<input type="number" id="calcTrees" min="0" value="2" oninput="calcPrice()">
+</div>
+<div class="calc-row">
+<label>Ёлка</label>
+<select id="calcTree" onchange="calcPrice()">
+<option value="none">Нет</option>
+<option value="small">До 2 метров</option>
+<option value="medium" selected>2–3 метра</option>
+<option value="large">Больше 3 метров</option>
+</select>
+</div>
+<div class="calc-row">
+<label>Световых фигур</label>
+<input type="number" id="calcFigures" min="0" value="0" oninput="calcPrice()">
+</div>
+<div class="calc-row">
+<label><input type="checkbox" id="calcInterior" onchange="calcPrice()" style="width:auto;margin-right:.5rem">Интерьерный декор (+12 000 ₽)</label>
+</div>
+<div class="calc-result" id="calcResult"></div>
+<div style="text-align:center;margin-top:1.2rem">
+<a href="contact.html" class="btn btn-gold">Получить точный расчёт</a>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+<div class="section-head">
+<span class="section-tag">Этапы</span>
+<h2 class="section-title">Как мы работаем</h2>
+</div>
+<div class="process-grid">
+<div class="process-step"><div class="process-num">1</div><h4>Заявка</h4><p>Оставляете заявку или звоните. Консультируем бесплатно.</p></div>
+<div class="process-step"><div class="process-num">2</div><h4>Дизайн-проект</h4><p>Делаем визуализацию по фото вашего дома за 2 часа.</p></div>
+<div class="process-step"><div class="process-num">3</div><h4>Замер</h4><p>Приезжаем с образцами гирлянд и точным расчётом.</p></div>
+<div class="process-step"><div class="process-num">4</div><h4>Монтаж</h4><p>Устанавливаем за 1–3 дня. Гарантия 2 года.</p></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section alt">
+<div class="section-head">
+<span class="section-tag">Отзывы</span>
+<h2 class="section-title">Что говорят клиенты</h2>
+</div>
+<div class="test-grid" id="testGrid"></div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+<div class="section-head">
+<span class="section-tag">FAQ</span>
+<h2 class="section-title">Частые вопросы</h2>
+</div>
+<div class="faq-list" id="faqList"></div>
+</section>
+
+<!-- CTA -->
+<section class="section alt" style="text-align:center">
+<h2 class="section-title" style="margin-bottom:1rem">Готовы создать сказку?</h2>
+<p class="section-sub" style="margin-bottom:2rem">Бесплатный выезд на замер в Егорьевске и районе</p>
+<a href="contact.html" class="btn btn-gold" style="font-size:1rem;padding:1rem 2.5rem">✦ Оставить заявку</a>
+<a href="https://wa.me/79991234567" target="_blank" class="wa-btn" style="margin-left:1rem">💬 WhatsApp</a>
+</section>
+</main>
+
+<footer>
+<div class="footer-logo">❄️ WinterGlow</div>
+<ul class="footer-links">
+<li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li>
+<li><a href="catalog.html">Каталог</a></li><li><a href="gallery.html">Галерея</a></li>
+<li><a href="about.html">О нас</a></li><li><a href="contact.html">Контакты</a></li>
+</ul>
+<p class="footer-copy">© 2025 WinterGlow. Новогоднее украшение домов. Егорьевск и область.</p>
+</footer>
+
+<!-- CART -->
+<div class="cart-modal" id="cartModal" onclick="closeCartOutside(event)">
+<div class="cart-panel" onclick="event.stopPropagation()">
+<div class="cart-header"><h3>🛒 Корзина</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
+<div id="cartItems"></div>
+<div class="cart-total"><span>Итого:</span><span class="cart-total-price" id="cartTotal">0 ₽</span></div>
+<div class="cart-actions">
+<a href="contact.html" class="btn btn-gold" style="justify-content:center" onclick="closeCart()">Оформить</a>
+<button class="btn btn-outline" style="justify-content:center" onclick="clearCart()">Очистить</button>
+</div>
+</div>
+</div>
+
+<!-- ADMIN MODALS -->
+<div class="modal-overlay" id="productModal" onclick="closeModalOutside(event)">
+<div class="modal-box" onclick="event.stopPropagation()">
+<h3 id="productModalTitle">Новый товар</h3>
+<input type="hidden" id="editId">
+<div class="modal-field"><label>Категория</label><input type="text" id="f_cat" placeholder="Гирлянды"></div>
+<div class="modal-field"><label>Название</label><input type="text" id="f_title" placeholder="Светодиодная гирлянда"></div>
+<div class="modal-field"><label>Описание</label><textarea id="f_desc" placeholder="100 метров, 500 ламп..."></textarea></div>
+<div class="modal-field"><label>Цена (например: 8 900)</label><input type="text" id="f_price" placeholder="8 900"></div>
+<div class="modal-field"><label>Ссылка на фото (URL)</label><input type="text" id="f_img" placeholder="https://..."></div>
+<div class="modal-field"><label>Эмодзи (если нет фото)</label><input type="text" id="f_icon" placeholder="💡"></div>
+<div class="modal-field"><label>Бейдж (Хит/Новинка — или пусто)</label><input type="text" id="f_badge" placeholder="Хит"></div>
+<div class="modal-btns">
+<button class="btn btn-outline" onclick="closeModal('productModal')">Отмена</button>
+<button class="btn btn-gold" onclick="saveProduct()">Сохранить</button>
+</div>
+</div>
+</div>
+
+<div class="modal-overlay" id="galleryModal" onclick="closeModalOutside(event)">
+<div class="modal-box" onclick="event.stopPropagation()">
+<h3>Новое фото</h3>
+<div class="modal-field"><label>Название</label><input type="text" id="g_title" placeholder="Украшение фасада"></div>
+<div class="modal-field"><label>Описание</label><input type="text" id="g_desc" placeholder="Коттедж, 2024"></div>
+<div class="modal-field"><label>Ссылка на фото (URL)</label><input type="text" id="g_src" placeholder="https://..."></div>
+<div class="modal-field"><label>Эмодзи (если нет фото)</label><input type="text" id="g_icon" placeholder="🏠"></div>
+<div class="modal-btns">
+<button class="btn btn-outline" onclick="closeModal('galleryModal')">Отмена</button>
+<button class="btn btn-gold" onclick="saveGallery()">Сохранить</button>
+</div>
+</div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/components.js"></script>
+</body>
+</html>

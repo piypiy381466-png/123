@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Свяжитесь с WinterGlow. Бесплатный выезд на замер. Егорьевск и область.">
+<title>Контакты — WinterGlow</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="snow"></div>
+<div class="admin-bar" id="adminBar"><span>🔐 Админ</span><button class="abtn" onclick="exportData()">💾 Сохранить</button><button class="abtn" onclick="importData()">📂 Загрузить</button><button class="abtn red" onclick="toggleAdmin()">Выход</button></div>
+<nav class="nav" id="navbar">
+<div class="nav-logo" onclick="location.href='index.html'"><span>❄️</span> WinterGlow</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html" data-page="home">Главная</a></li>
+<li><a href="services.html" data-page="services">Услуги</a></li>
+<li><a href="catalog.html" data-page="catalog">Каталог</a></li>
+<li><a href="gallery.html" data-page="gallery">Галерея</a></li>
+<li><a href="about.html" data-page="about">О нас</a></li>
+<li><a href="contact.html" data-page="contact" class="active nav-cta">Заказать</a></li>
+<li><button class="cart-icon" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></button></li>
+</ul>
+<button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<main>
+<div class="section-head" style="padding-top:5rem">
+<span class="section-tag">Контакты</span>
+<h2 class="section-title">Оставьте заявку</h2>
+<p class="section-sub">Бесплатный выезд и дизайн-проект в Егорьевске</p>
+</div>
+<div class="contact-wrap">
+<div class="contact-info">
+<h3>Свяжитесь с нами</h3>
+<p>Расскажите о вашем доме — предложим решение и рассчитаем стоимость за 24 часа.</p>
+<div class="contact-line"><span class="ic">📞</span> +7 (999) 123-45-67</div>
+<div class="contact-line"><span class="ic">✉️</span> hello@winterglow.ru</div>
+<div class="contact-line"><span class="ic">📍</span> Егорьевск, Московская область</div>
+<div class="contact-line"><span class="ic">🕐</span> Ежедневно 9:00–21:00</div>
+<a href="https://wa.me/79991234567" target="_blank" class="wa-btn">💬 Написать в WhatsApp</a>
+</div>
+<form class="contact-form" id="contactForm">
+<input type="text" name="name" placeholder="Ваше имя" required>
+<input type="tel" name="phone" id="phone" placeholder="+7 (999) 999-99-99" required>
+<input type="email" name="email" placeholder="Email">
+<textarea name="message" placeholder="Опишите проект: тип дома, площадь, пожелания..."></textarea>
+<input type="hidden" name="cart" id="cartField">
+<button type="submit" class="btn btn-gold" style="justify-content:center">✦ Отправить заявку</button>
+<div class="form-ok" id="formOk">✓ Заявка отправлена! Перезвоним в течение часа.</div>
+</form>
+</div>
+<section class="section alt">
+<div class="section-head"><span class="section-tag">FAQ</span><h2 class="section-title">Частые вопросы</h2></div>
+<div class="faq-list" id="faqList"></div>
+</section>
+</main>
+<footer>
+<div class="footer-logo">❄️ WinterGlow</div>
+<ul class="footer-links"><li><a href="index.html">Главная</a></li><li><a href="services.html">Услуги</a></li><li><a href="catalog.html">Каталог</a></li><li><a href="gallery.html">Галерея</a></li><li><a href="about.html">О нас</a></li><li><a href="contact.html">Контакты</a></li></ul>
+<p class="footer-copy">© 2025 WinterGlow. Егорьевск и область.</p>
+</footer>
+<div class="cart-modal" id="cartModal" onclick="closeCartOutside(event)"><div class="cart-panel" onclick="event.stopPropagation()"><div class="cart-header"><h3>🛒 Корзина</h3><button class="cart-close" onclick="closeCart()">✕</button></div><div id="cartItems"></div><div class="cart-total"><span>Итого:</span><span class="cart-total-price" id="cartTotal">0 ₽</span></div><div class="cart-actions"><a href="contact.html" class="btn btn-gold" style="justify-content:center" onclick="closeCart()">Оформить</a><button class="btn btn-outline" style="justify-content:center" onclick="clearCart()">Очистить</button></div></div></div>
+<script src="js/data.js"></script><script src="js/app.js"></script><script src="js/components.js"></script>
+</body>
+</html>
